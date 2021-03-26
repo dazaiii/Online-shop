@@ -8,7 +8,7 @@ import java.util.Set;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idcategory")
+    @Column(name = "idCategory")
     private Long idCategory;
 
     @Column(name = "category")
