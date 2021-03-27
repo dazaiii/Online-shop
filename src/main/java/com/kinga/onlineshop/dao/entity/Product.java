@@ -8,6 +8,7 @@ import java.util.Set;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="idProduct")
     private Long idProduct;
 
     @Column(name="name")
@@ -29,9 +30,28 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private Set<Rating> ratings;
 
-    @ManyToOne
+    @OneToMany(mappedBy = "product")
+    private Set<Cart> carts;
+
+    /*
+    @ManyToOne(targetEntity = Cart.class)
     @JoinColumn(name="idProduct")
     private Cart cart;
+    */
+
+    public Product() {
+    }
+
+    public Product(Long idProduct, String name, double price, int amount, String description, Category category, Set<Rating> ratings, Set<Cart> carts) {
+        this.idProduct = idProduct;
+        this.name = name;
+        this.price = price;
+        this.amount = amount;
+        this.description = description;
+        this.category = category;
+        this.ratings = ratings;
+        this.carts = carts;
+    }
 
     public Long getIdProduct() {
         return idProduct;
@@ -89,11 +109,11 @@ public class Product {
         this.ratings = ratings;
     }
 
-    public Cart getCart() {
-        return cart;
+    public Set<Cart> getCarts() {
+        return carts;
     }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    public void setCarts(Set<Cart> carts) {
+        this.carts = carts;
     }
 }

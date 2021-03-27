@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="idRating")
     private Long idRating;
 
     @Column(name = "rating")
@@ -22,6 +23,17 @@ public class Rating {
     @ManyToOne
     @JoinColumn(name="idUser")
     private User user;
+
+    public Rating() {
+    }
+
+    public Rating(Long idRating, int rating, String description, Product product, User user) {
+        this.idRating = idRating;
+        this.rating = rating;
+        this.description = description;
+        this.product = product;
+        this.user = user;
+    }
 
     public Long getIdRating() {
         return idRating;

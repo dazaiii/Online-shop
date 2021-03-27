@@ -1,7 +1,5 @@
 package com.kinga.onlineshop.dao.entity;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -10,22 +8,31 @@ import java.util.Set;
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="idCart")
     private Long idCart;
 
     @Column(name="amount")
     private int amount;
 
+    @ManyToOne
+    @JoinColumn(name = "idProduct")
+    private Product product;
+/*
     @OneToMany(mappedBy = "cart")
     private Set<Product> products;
+*/
 
     @ManyToOne
     @JoinColumn(name = "idUser")
     private User user;
 
-    public Cart(Long idCart, int amount, Set<Product> products, User user) {
+    public Cart() {
+    }
+
+    public Cart(Long idCart, int amount, Product product, User user) {
         this.idCart = idCart;
         this.amount = amount;
-        this.products = products;
+        this.product = product;
         this.user = user;
     }
 
@@ -45,12 +52,12 @@ public class Cart {
         this.amount = amount;
     }
 
-    public Set<Product> getProducts() {
-        return products;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public User getUser() {

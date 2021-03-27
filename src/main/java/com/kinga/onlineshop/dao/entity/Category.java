@@ -17,6 +17,15 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private Set<Product> products;
 
+    public Category() {
+    }
+
+    public Category(Long idCategory, String category, Set<Product> products) {
+        this.idCategory = idCategory;
+        this.category = category;
+        this.products = products;
+    }
+
     public Long getIdCategory() {
         return idCategory;
     }
