@@ -8,7 +8,7 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idUser")
+    @Column(name = "id_user")
     private Long idUser;
 
     @Column(name = "login")

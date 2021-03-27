@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idRating")
+    @Column(name="id_rating")
     private Long idRating;
 
     @Column(name = "rating")
@@ -17,11 +17,11 @@ public class Rating {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name="idProduct")
+    @JoinColumn(name="id_product")
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name="idUser")
+    @JoinColumn(name="id_user")
     private User user;
 
     public Rating() {

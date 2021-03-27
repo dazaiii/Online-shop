@@ -1,29 +1,24 @@
 package com.kinga.onlineshop.dao.entity;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "carts")
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idCart")
+    @Column(name="id_cart")
     private Long idCart;
 
     @Column(name="amount")
     private int amount;
 
     @ManyToOne
-    @JoinColumn(name = "idProduct")
+    @JoinColumn(name = "id_product")
     private Product product;
-/*
-    @OneToMany(mappedBy = "cart")
-    private Set<Product> products;
-*/
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
+    @JoinColumn(name = "id_user")
     private User user;
 
     public Cart() {

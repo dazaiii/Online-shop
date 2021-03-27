@@ -8,7 +8,7 @@ import java.util.Set;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idProduct")
+    @Column(name="id_product")
     private Long idProduct;
 
     @Column(name="name")
@@ -24,7 +24,7 @@ public class Product {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name="idCategory")
+    @JoinColumn(name="id_category")
     private Category category;
 
     @OneToMany(mappedBy = "product")
@@ -32,12 +32,6 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     private Set<Cart> carts;
-
-    /*
-    @ManyToOne(targetEntity = Cart.class)
-    @JoinColumn(name="idProduct")
-    private Cart cart;
-    */
 
     public Product() {
     }

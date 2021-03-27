@@ -8,13 +8,13 @@ import java.util.Set;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idCategory")
+    @Column(name = "id_category", nullable = false, unique = true)
     private Long idCategory;
 
     @Column(name = "category")
     private String category;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", targetEntity = Product.class)
     private Set<Product> products;
 
     public Category() {
