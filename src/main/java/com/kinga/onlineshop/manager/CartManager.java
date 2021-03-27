@@ -1,31 +1,34 @@
 package com.kinga.onlineshop.manager;
 
+import com.kinga.onlineshop.dao.CartRepo;
 import com.kinga.onlineshop.dao.entity.Cart;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 public class CartManager {
-    private CartManager cartManager;
+    private CartRepo cartRepo;
 
-    public CartManager(CartManager cartManager) {
-        this.cartManager = cartManager;
+    @Autowired
+    public CartManager(CartRepo cartRepo) {
+        this.cartRepo = cartRepo;
     }
 
     public Optional<Cart> findById(Long id){
-        return cartManager.findById(id);
+        return cartRepo.findById(id);
     }
 
     public Iterable<Cart> findAll(){
-        return cartManager.findAll();
+        return cartRepo.findAll();
     }
 
     public Cart save(Cart cart){
-        return cartManager.save(cart);
+        return cartRepo.save(cart);
     }
 
     public void deleteById(Long id){
-        cartManager.deleteById(id);
+        cartRepo.deleteById(id);
     }
 }
