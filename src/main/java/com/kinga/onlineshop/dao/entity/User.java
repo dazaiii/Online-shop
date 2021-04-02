@@ -20,6 +20,9 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "role")
+    private String role;
+
     @OneToMany(mappedBy = "user")
     private Set<Rating> ratings;
 
@@ -84,5 +87,13 @@ public class User {
 
     public void setCarts(Set<Cart> carts) {
         this.carts = carts;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
