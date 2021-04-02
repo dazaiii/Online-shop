@@ -4,9 +4,9 @@ package com.kinga.onlineshop.manager;
 import com.kinga.onlineshop.dao.UserRepo;
 import com.kinga.onlineshop.dao.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,6 +32,14 @@ public class UserManager {
 
     public void deleteById(Long id){
         userRepo.deleteById(id);
+    }
+
+    public List<User> findByLogin(String login){
+        return userRepo.findByLogin(login);
+    }
+
+    public List<User> findByEmail(String email){
+        return userRepo.findByEmail(email);
     }
 
 }
