@@ -6,6 +6,7 @@ public class ProductDto {
     private double price;
     private int amount;
     private String description;
+    private Long idCategory;
 
     public Long getIdProduct() {
         return idProduct;
@@ -45,5 +46,13 @@ public class ProductDto {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(Long idCategory) {
+        this.idCategory = idCategory;
     }
 }
